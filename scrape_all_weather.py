@@ -17,13 +17,13 @@ def scrape_weather():
             construct = weatherman(url)
             weeklong = prediction(construct)
             analysis = mean_temperature(weeklong[2])
-            print("url: {0}\nweeklong: {1}\n\nmean: {2}".format(url, weeklong, analysis))
+            #print("url: {0}\nweeklong: {1}\n\nmean: {2}".format(url, weeklong, analysis))
 
             aggregate_temp.append(weeklong[2])
             if i % 5 == 0:
                 mean_total_temp = mean_temperature(aggregate_temp[i])
-                print("\n\n\n Mean tempeature so far: {0}".format(mean_total_temp))
-
+                #print("\n\n\n Mean tempeature so far: {0}".format(mean_total_temp))
+            print("Iterations so far: {0}".format(i))
             i += 1
 
         except StopIteration as e:
