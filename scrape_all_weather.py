@@ -18,7 +18,6 @@ def scrape_weather():
             weeklong = prediction(construct)
             analysis = mean_temperature(weeklong[2])
             #print("url: {0}\nweeklong: {1}\n\nmean: {2}".format(url, weeklong, analysis))
-
             aggregate_temp.append(weeklong[2])
             if i % 5 == 0:
                 mean_total_temp = mean_temperature(aggregate_temp[i])
