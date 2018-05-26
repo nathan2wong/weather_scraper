@@ -1,8 +1,10 @@
 from weatherman import *
 from url_generator import *
 from visualize_temp import *
+import datetime
 
-NUMBER_OF_SCRAPES = 15
+NUMBER_OF_SCRAPES = 20
+CURRENT_TIME = datetime.datetime.now()
 
 def scrape_weather():
     print("\n\n\n\n")
@@ -42,4 +44,5 @@ if __name__ == "__main__":
         for i in range(len(place)):
             place[i] = extract_digits(place[i])
     daily_mean_temps = format_data(aggregate_temp)
-    save_csv(daily_mean_temps, "./data/{0}-scrape_weather.csv".format(NUMBER_OF_SCRAPES))
+    save_csv(daily_mean_temps, "./data/{0}-scrape_weather-{1}.csv".format(NUMBER_OF_SCRAPES, CURRENT_TIME))
+    visualize_data(daily_mean_temps, "./data/visualizations/{0}-temp_visualization-{1}.html".format(NUMBER_OF_SCRAPES, CURRENT_TIME))
