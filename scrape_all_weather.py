@@ -3,7 +3,7 @@ from url_generator import *
 from visualize_temp import *
 import datetime
 
-NUMBER_OF_SCRAPES = 20
+NUMBER_OF_SCRAPES = 1000
 CURRENT_TIME = datetime.datetime.now()
 
 def scrape_weather():
@@ -25,14 +25,10 @@ def scrape_weather():
                 #print("\n\n\n Mean tempeature so far: {0}".format(mean_total_temp))
             print("Iterations so far: {0}".format(i))
             i += 1
-
-        except StopIteration as e:
-            print(e)
-        except ValueError as e:
-            print(e)
         except AttributeError as e:
             print(e)
             print("\n\n\n Page not found probably")
+            i+=1
         except:
             print("Unknown error at {0}".format(i))
             i+= 1
